@@ -1,0 +1,6 @@
+[submodule "packages/runusb"]
+	path = packages/runusb
+	url = https://github.com/sourcebots/runusb.git
+[submodule "packages/usbmount"]
+	path = packages/usbmount
+	url = https://github.com/rbrito/usbmount.git
