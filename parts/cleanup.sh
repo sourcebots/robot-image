@@ -9,4 +9,4 @@ apt-get remove --yes build-essential devscripts
 
 apt-get autoremove --yes
 
-pip3 cache purge
+rm -rf $HOME/.cache
