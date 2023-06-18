@@ -15,6 +15,9 @@ apt-get install -y $PACKAGES_DIR/*.deb
 
 #pip install -r /tmp/packer-files/requirements.txt
 
+# Install helpful libraries
+pip install -r /tmp/packer-files/libraries.txt
+
 group=plugdev
 
 # Create a group and add the default user to it.
