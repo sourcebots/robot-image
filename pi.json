@@ -61,11 +61,5 @@
           "parts/cleanup.sh"
         ]
       }
-    ],
-    "post-processors": [
-      {
-        "type": "compress",
-        "output": "output.img.gz"
-      }
     ]
   }
