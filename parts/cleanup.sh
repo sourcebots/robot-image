@@ -8,4 +8,6 @@ apt-get remove --yes build-essential devscripts
 
 apt-get autoremove --yes
 
-rm -rf $HOME/.cache
+apt-get clean --yes
+
+rm -rf $HOME/.cache /tmp/* /var/lib/apt/lists/* /var/tmp/* /var/log/*
