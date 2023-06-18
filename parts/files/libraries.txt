@@ -2,4 +2,4 @@
 # competitors will be present.
 scipy==1.10.1
 matplotlib==3.7.1
-pandas==2.0.2
+pandas==1.4.4
