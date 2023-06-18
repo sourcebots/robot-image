@@ -13,10 +13,10 @@ dpkg-buildpackage -us -uc -b
 
 apt-get install -y $PACKAGES_DIR/*.deb
 
-pip install -r /tmp/packer-files/requirements.txt
+pip install --no-cache -r /tmp/packer-files/requirements.txt
 
 # Install helpful libraries
-pip install -r /tmp/packer-files/libraries.txt
+pip install --no-cache -r /tmp/packer-files/libraries.txt
 
 group=plugdev
 
