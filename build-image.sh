@@ -3,7 +3,7 @@
 SB_NAME="Source OS"
 SB_VERSION="$(git describe --tags)"
 
-rm -f output.img.xz
+rm -f output.img
 
 docker run --rm --privileged \
     -v /dev:/dev \

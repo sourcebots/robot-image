@@ -1,0 +1,30 @@
+name: Image build
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install fdisk gdisk qemu-user-static libarchive-tools tar
+
+      - name: Checkout
+        uses: actions/checkout@v3.3.0
+        with:
+          fetch-depth: 0
+          submodules: recursive
+
+      - name: Build image
+        run: |
+          chmod +x build-image.sh
+          ./build-image.sh
+
+      - name: Save image artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: image
+          path: output.img
