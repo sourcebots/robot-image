@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eu -o pipefail
+set -eux -o pipefail
 
 user="robot"
 password="$(openssl passwd -crypt -salt robot robot)"

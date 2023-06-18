@@ -1,6 +1,5 @@
 #!/bin/bash
-set -eu -o pipefail
-
+set -eux -o pipefail
 
 systemctl disable dhcpcd
 systemctl disable hciuart
