@@ -1,6 +1,7 @@
 name: Image build
 on:
   workflow_dispatch:
+  tags:
 
 jobs:
   build:
