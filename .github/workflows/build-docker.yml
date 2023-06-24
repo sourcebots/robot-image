@@ -1,7 +1,9 @@
 name: Image build
 on:
   workflow_dispatch:
-  tags:
+  push:
+    tags:
+      - '**'
 
 jobs:
   build:
