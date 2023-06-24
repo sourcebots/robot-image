@@ -11,7 +11,7 @@
       "file_unarchive_cmd": ["xz", "--decompress", "$ARCHIVE_PATH"],
       "file_target_extension": "xz",
       "image_build_method": "resize",
-      "image_path": "output.img",
+      "image_path": "{{user `SB_NAME`}}-image-{{user `SB_VERSION`}}.img",
       "image_size": "4G",
       "image_type": "dos",
       "image_partitions": [

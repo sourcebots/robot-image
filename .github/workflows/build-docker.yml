@@ -22,8 +22,13 @@ jobs:
         run: |
           ./build-image.sh
 
+      - name: Get output name
+        id: git-desc
+        run: |
+          echo "git-desc=$(git describe --tags)" >> $GITHUB_OUTPUT
+
       - name: Save image artifact
         uses: actions/upload-artifact@v3
         with:
-          name: image
-          path: output.img
+          name: image-${{ steps.git-desc.outputs.git-desc }}
+          path: ${{ github.workspace }}/*.img
