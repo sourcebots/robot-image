@@ -25,7 +25,7 @@ jobs:
       - name: Get output name
         id: git-desc
         run: |
-          echo "git-desc=$(git describe --tags)" >> $GITHUB_OUTPUT
+          echo "git-desc=$(git describe --tags --always)" >> $GITHUB_OUTPUT
 
       - name: Save image artifact
         uses: actions/upload-artifact@v3

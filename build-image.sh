@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SB_NAME="Source OS"
-SB_VERSION="$(git describe --tags)"
+SB_VERSION="$(git describe --tags --always)"
 
 rm -f *-image-*.img
 
