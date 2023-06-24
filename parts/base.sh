@@ -23,9 +23,12 @@ cat >>/boot/config.txt <<EOF
 enable_uart=1
 EOF
 
-cat >>/etc/network/interfaces <<EOF
-# Bring up interface with link local address
-# As DHCPCD is disabled, we can disregard the above warning
-allow-hotplug eth0
-iface eth0 inet manual
+cat >>/etc/dhcpcd.conf <<EOF
+# define a static profile to use of DHCP fails
+profile static_eth0
+static ip_address=172.31.254.254/24
+
+# fallback to static profile on eth0 if DHCP fails
+interface eth0
+fallback static_eth0
 EOF
