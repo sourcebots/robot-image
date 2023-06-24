@@ -24,7 +24,7 @@ enable_uart=1
 EOF
 
 cat >>/etc/dhcpcd.conf <<EOF
-# define a static profile to use of DHCP fails
+# define a static profile to use if DHCP fails
 profile static_eth0
 static ip_address=172.31.254.254/24
 
