@@ -1,9 +1,9 @@
 #!/bin/bash
 
 SB_NAME="Source OS"
-SB_VERSION="$(git describe --tags)"
+SB_VERSION="$(git describe --tags --always)"
 
-rm -f output.img.xz
+rm -f *-image-*.img
 
 docker run --rm --privileged \
     -v /dev:/dev \
