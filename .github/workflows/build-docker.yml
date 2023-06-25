@@ -34,4 +34,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: image-${{ steps.git-desc.outputs.git-desc }}
-          path: ${{ github.workspace }}/*.img
+          path: ${{ github.workspace }}/*.img.xz

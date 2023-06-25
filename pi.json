@@ -61,5 +61,11 @@
           "parts/cleanup.sh"
         ]
       }
+    ],
+    "post-processors": [
+      {
+        "type": "shell-local",
+        "inline": ["xz -vT0 \"{{user `SB_NAME`}}-image-{{user `SB_VERSION`}}.img\""]
+      }
     ]
   }
