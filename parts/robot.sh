@@ -13,6 +13,10 @@ dpkg-buildpackage -us -uc -b
 
 apt-get install -y $PACKAGES_DIR/*.deb
 
+# Install OpenCV through apt, as it's better optimised
+apt-get install -y python3-opencv
+
+# Install core components
 pip install --no-cache -r /tmp/packer-files/requirements.txt
 
 # Install helpful libraries
