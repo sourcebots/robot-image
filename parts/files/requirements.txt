@@ -1,4 +1,2 @@
+sbot==1.0.0rc1
 numpy==1.25.0
-
-# TODO: Replace this once on PyPI
-git+https://github.com/sourcebots/sbot.git@6db810ea9175216dbce6d79f4792df9eae2185cd
