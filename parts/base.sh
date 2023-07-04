@@ -32,3 +32,6 @@ static ip_address=172.31.254.254/24
 interface eth0
 fallback static_eth0
 EOF
+
+# Set hostname
+hostnamectl set-hostname robot
