@@ -1,2 +1,2 @@
-sbot==1.0.0rc1
+sbot[vision]==1.0.0rc1
 numpy==1.25.0
