@@ -35,5 +35,6 @@ EOF
 
 # Set hostname
 original_hostname=$(uname -n)
-hostnamectl set-hostname robot
+echo robot > /etc/hostname
+hostname robot
 sed -i 's/$original_hostname/robot/gi' /etc/hosts
