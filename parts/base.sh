@@ -34,7 +34,7 @@ fallback static_eth0
 EOF
 
 # Set hostname
-original_hostname=$(uname -n)
+original_hostname=$(cat /etc/hostname)
 echo robot > /etc/hostname
 hostname robot
 sed -i "s/$original_hostname/robot/gi" /etc/hosts
