@@ -37,4 +37,4 @@ EOF
 original_hostname=$(uname -n)
 echo robot > /etc/hostname
 hostname robot
-sed -i 's/$original_hostname/robot/gi' /etc/hosts
+sed -i "s/$original_hostname/robot/gi" /etc/hosts
