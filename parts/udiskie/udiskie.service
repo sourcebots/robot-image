@@ -1,0 +1,11 @@
+[Unit]
+Description=Udiskie Disk Automounter
+After=udisks2.service
+
+[Service]
+ExecStart=/usr/bin/udiskie -c /etc/udiskie.yml
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
