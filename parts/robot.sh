@@ -1,14 +1,11 @@
 #!/bin/bash
 set -eux -o pipefail
 
-export PACKAGES_DIR=/tmp/packer-packages
-
 echo "Storage=persistent" >> /etc/systemd/journald.conf
 
-cd $PACKAGES_DIR/runusb
-debuild -uc -us
-
-apt-get install -y $PACKAGES_DIR/*.deb
+# Download and install runusb
+wget -O /tmp/runusb.deb https://github.com/sourcebots/runusb/releases/download/2023.0.0rc1/runusb_2023.0.0rc1_all.deb
+apt-get install -y /tmp/runusb.deb
 
 # Install and configure udiskie
 apt-get install -y udiskie

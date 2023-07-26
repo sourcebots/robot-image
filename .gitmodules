@@ -1,3 +1,0 @@
-[submodule "packages/runusb"]
-	path = packages/runusb
-	url = https://github.com/sourcebots/runusb.git
