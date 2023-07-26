@@ -37,6 +37,7 @@ jobs:
 
       - name: Save image artifact
         uses: actions/upload-artifact@v3
+        if: github.event_name != 'release'
         with:
           name: image-${{ env.git_desc }}
           path: ${{ env.image_path }}
