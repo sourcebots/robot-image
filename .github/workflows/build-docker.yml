@@ -31,10 +31,22 @@ jobs:
       - name: Get output name
         id: git-desc
         run: |
-          echo "git-desc=$(git describe --tags --always)" >> $GITHUB_OUTPUT
+          echo "git_desc=$(git describe --tags --always)" >> $GITHUB_ENV
+          echo "image_path=$(realpath ${{ github.workspace }}/*.img.xz)" >> $GITHUB_ENV
+          echo "image_name=$(basename ${{ github.workspace }}/*.img.xz)" >> $GITHUB_ENV
 
       - name: Save image artifact
         uses: actions/upload-artifact@v3
         with:
-          name: image-${{ steps.git-desc.outputs.git-desc }}
-          path: ${{ github.workspace }}/*.img.xz
+          name: image-${{ env.git_desc }}
+          path: ${{ env.image_path }}
+
+      - name: Upload image to release
+        uses: svenstaro/upload-release-action@v2
+        if: github.event_name == 'release'
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: ${{ env.image_path }}
+          asset_name: ${{ env.image_name }}
+          tag: ${{ github.ref }}
+          overwrite: true
