@@ -1,9 +1,12 @@
 name: Image build
+
 on:
-  workflow_dispatch:
+  release:
+    types: [created]
   push:
-    tags:
-      - '**'
+    branches:
+      - master
+  pull_request:
 
 jobs:
   build:
