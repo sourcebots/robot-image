@@ -3,11 +3,6 @@ set -eux -o pipefail
 
 echo "Storage=persistent" >> /etc/systemd/journald.conf
 
-cd $PACKAGES_DIR/runusb
-debuild -uc -us
-
-apt-get install -y $PACKAGES_DIR/*.deb
-
 # Install and configure udiskie
 apt-get install -y udiskie
 cp /tmp/packer-files/udiskie/udiskie.yml /etc/
