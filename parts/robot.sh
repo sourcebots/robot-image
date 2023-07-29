@@ -13,6 +13,7 @@ dpkg-buildpackage -us -uc -b
 
 apt-get install -y $PACKAGES_DIR/*.deb
 
+# Install core components
 pip install --no-cache -r /tmp/packer-files/requirements.txt
 
 # Install helpful libraries
