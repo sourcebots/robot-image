@@ -3,6 +3,7 @@ Description=Udiskie Disk Automounter
 After=udisks2.service
 
 [Service]
+User=robot
 ExecStart=/usr/bin/udiskie -c /etc/udiskie.yml
 Restart=on-failure
 RestartSec=5s
