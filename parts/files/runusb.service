@@ -5,7 +5,7 @@ Description=Automatic running of USB devices
 Type=simple
 User=robot
 Environment="RUNUSB_MOUNTPOINT_DIR=/media/robot"
-ExecStart=/usr/bin/runusb
+ExecStart=/usr/local/bin/runusb
 Restart=on-failure
 RestartSec=5s
 

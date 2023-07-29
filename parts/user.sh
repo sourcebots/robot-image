@@ -11,7 +11,7 @@ useradd \
     --create-home \
     -s /bin/bash \
     -u 1000 \
-    -G sudo,video,dialout,adm \
+    -G sudo,video,dialout,adm,gpio \
     -p "$password" \
     $user
 

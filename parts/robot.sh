@@ -9,6 +9,16 @@ cp /tmp/packer-files/udiskie/udiskie.yml /etc/
 cp /tmp/packer-files/udiskie/udiskie.service /lib/systemd/system/
 systemctl enable udiskie.service
 
+# Add polkit rules for udiskie
+mkdir -p /etc/polkit-1/rules.d
+mkdir -p /etc/polkit-1/localauthority/50-local.d
+cp /tmp/packer-files/polkit/rules.d/50-udiskie.rules /etc/polkit-1/rules.d/50-udiskie.rules
+cp /tmp/packer-files/polkit/localauthority/10-udisks.pkla /etc/polkit-1/localauthority/50-local.d/10-udisks.pkla
+
+# Create a group that can use udisks and add the default user to it.
+groupadd --force storage
+usermod -a -G storage robot
+
 # Install core components
 pip install --no-cache -r /tmp/packer-files/requirements.txt
 
