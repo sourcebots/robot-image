@@ -1,8 +1,6 @@
 #!/bin/bash
 set -eux -o pipefail
 
-export PACKAGES_DIR=/tmp/packer-packages
-
 echo "Storage=persistent" >> /etc/systemd/journald.conf
 
 cd $PACKAGES_DIR/runusb
@@ -36,6 +34,9 @@ pip install --no-cache -r /tmp/packer-files/requirements.txt
 
 # Install helpful libraries
 pip install --no-cache -r /tmp/packer-files/libraries.txt
+
+cp /tmp/packer-files/runusb.service /lib/systemd/system/
+systemctl enable runusb.service
 
 group=plugdev
 
