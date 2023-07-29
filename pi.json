@@ -43,11 +43,6 @@
         "destination": "/tmp/packer-files"
       },
       {
-        "type": "file",
-        "source": "./packages/",
-        "destination": "/tmp/packer-packages"
-      },
-      {
         "type": "shell",
         "environment_vars": [
           "SB_NAME={{user `SB_NAME`}}",

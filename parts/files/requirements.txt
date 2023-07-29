@@ -1,2 +1,3 @@
 sbot[vision]==1.0.0rc2
 numpy==1.25.0
+runusb==2023.0.0rc2

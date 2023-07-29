@@ -1,0 +1,13 @@
+[Unit]
+Description=Automatic running of USB devices
+
+[Service]
+Type=simple
+User=robot
+Environment="RUNUSB_MOUNTPOINT_DIR=/media/robot"
+ExecStart=/usr/bin/runusb
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target

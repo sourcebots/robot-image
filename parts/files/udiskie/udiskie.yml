@@ -1,0 +1,9 @@
+# Configuration for Udiskie
+program_options:
+  file_manager: ""
+  notify: false
+device_config:
+  - device_file: /dev/mmcblk0p1  # Ignore boot partition
+    ignore: true
+  - device_file: /dev/mmcblk0p2  # Ignore root partition
+    ignore: true
