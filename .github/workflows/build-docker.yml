@@ -10,6 +10,8 @@ on:
 
 jobs:
   build:
+    permissions:
+      id-token: write 
     name: Build image
     runs-on: ubuntu-latest
     steps:
