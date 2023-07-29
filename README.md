@@ -5,7 +5,7 @@ Packer scripts to build SourceBots robot image
 ## Requirements
 
 - Docker
-- This repository, cloned with submodules (`git submodule update --init` / `git clone --recursive`)
+- This repository cloned
 
 ## Usage
 
