@@ -10,8 +10,7 @@ apt-get -y install \
     htop \
     git \
     python3-pip \
-    build-essential \
-    devscripts
+    build-essential
 
 # Add line to config.txt
 echo 'VIDEO_CAMERA = "1"' >> /boot/config.txt
