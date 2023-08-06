@@ -1,18 +1,15 @@
 name: Image build
 
 on:
-  release:
-    types: [created]
   push:
     branches:
       - master
+    tags:
   pull_request:
   workflow_dispatch:
 
 jobs:
   build:
-    permissions:
-      id-token: write
     name: Build image
     runs-on: ubuntu-latest
     steps:
@@ -43,13 +40,3 @@ jobs:
         with:
           name: image-${{ env.git_desc }}
           path: ${{ env.image_path }}
-
-      - name: Upload image to release
-        uses: svenstaro/upload-release-action@v2
-        if: github.event_name == 'release'
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ${{ env.image_path }}
-          asset_name: ${{ env.image_name }}
-          tag: ${{ github.ref }}
-          overwrite: true
