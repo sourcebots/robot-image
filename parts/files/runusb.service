@@ -1,5 +1,6 @@
 [Unit]
 Description=Automatic running of USB devices
+After=network.target
 
 [Service]
 Type=simple
