@@ -3,7 +3,11 @@ program_options:
   file_manager: ""
   notify: false
 device_config:
-  - device_file: /dev/mmcblk0p1  # Ignore boot partition
+  # Ignore boot partition
+  - device_file: /dev/mmcblk0p1
     ignore: true
-  - device_file: /dev/mmcblk0p2  # Ignore root partition
+  - device_file: /dev/mmcblk0p2
     ignore: true
+
+  # Mount USB drives sync
+  - options: [sync]
