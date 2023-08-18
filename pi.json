@@ -1,7 +1,8 @@
 {
     "variables": {
       "SB_NAME": "",
-      "SB_VERSION": ""
+      "SB_VERSION": "",
+      "SKIP_COMPRESSION": "false"
     },
     "builders": [{
       "type": "arm",
@@ -60,7 +61,11 @@
     "post-processors": [
       {
         "type": "shell-local",
-        "inline": ["xz -vT0 \"{{user `SB_NAME`}}-image-{{user `SB_VERSION`}}.img\""]
+        "inline": [
+          "if [ \"{{user `SKIP_COMPRESSION`}}\" != \"true\" ]; then",
+          "xz -vT0 \"{{user `SB_NAME`}}-image-{{user `SB_VERSION`}}.img\"",
+          "fi"
+        ]
       }
     ]
   }

@@ -9,4 +9,4 @@ Packer scripts to build SourceBots robot image
 
 ## Usage
 
-Simply run the `./build-image.sh` script. Packer will download all needed files and save the output image to `output.img`, ready for further compression and/or distribution.
+Simply run the `./build-image.sh` script. Packer will download all needed files and save the output image to `Source OS-image-<GIT-TAG/HASH>.img.xz`, ready for distribution. Running `./build-image.sh nocompress` will skip the compression step, which greatly speeds up the build process.
