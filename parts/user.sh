@@ -2,7 +2,7 @@
 set -eux -o pipefail
 
 user="robot"
-password="$(openssl passwd -crypt -salt robot robot)"
+password="$(openssl passwd -salt robot robot)"
 
 userdel -r pi
 
