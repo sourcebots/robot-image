@@ -12,9 +12,6 @@ apt-get -y install \
     python3-pip \
     build-essential
 
-# Add line to config.txt
-echo 'VIDEO_CAMERA = "1"' >> /boot/config.txt
-
 cat >>/boot/config.txt <<EOF
 # Clear any filters that may previously have been in effect.
 [all]
@@ -22,15 +19,19 @@ cat >>/boot/config.txt <<EOF
 enable_uart=1
 EOF
 
-cat >>/etc/dhcpcd.conf <<EOF
 # define a static profile to use if DHCP fails
-profile static_eth0
-static ip_address=172.31.254.254/24
+cat <<EOF > /etc/network/interfaces.d/robot_eth0
+auto lo eth0 eth0:0
+allow-hotplug eth0
+iface lo inet loopback
+iface eth0 inet dhcp
 
-# fallback to static profile on eth0 if DHCP fails
-interface eth0
-fallback static_eth0
+# define a static profile to use if DHCP fails
+iface eth0:0 inet static
+    address 172.31.254.254
+    netmask 255.255.255.0
 EOF
+# nmcli connection modify 'Wired connection 1' +ipv4.addresses 172.31.254.254/24
 
 # Set hostname
 original_hostname=$(cat /etc/hostname)
