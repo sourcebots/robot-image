@@ -21,17 +21,22 @@ EOF
 
 # define a static profile to use if DHCP fails
 cat <<EOF > /etc/network/interfaces.d/robot_eth0
-auto lo eth0 eth0:0
-allow-hotplug eth0
+auto lo
 iface lo inet loopback
-iface eth0 inet dhcp
+
+allow-hotplug eth0
 
 # define a static profile to use if DHCP fails
-iface eth0:0 inet static
+iface eth0 inet static
     address 172.31.254.254
     netmask 255.255.255.0
+iface eth0 inet dhcp
 EOF
 # nmcli connection modify 'Wired connection 1' +ipv4.addresses 172.31.254.254/24
+
+# Avoid waiting for network during boot
+systemctl disable systemd-networkd-wait-online.service
+systemctl mask systemd-networkd-wait-online.service
 
 # Set hostname
 original_hostname=$(cat /etc/hostname)
