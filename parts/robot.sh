@@ -19,6 +19,9 @@ cp /tmp/packer-files/polkit/localauthority/10-udisks.pkla /etc/polkit-1/localaut
 groupadd --force storage
 usermod -a -G storage robot
 
+# Allow pip to install packages globally
+sudo rm /usr/lib/python3.11/EXTERNALLY-MANAGED
+
 # Install core components
 pip install --no-cache -r /tmp/packer-files/requirements.txt
 
