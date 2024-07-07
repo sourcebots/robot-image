@@ -34,7 +34,7 @@ systemctl enable runusb.service
 group=plugdev
 
 # Remove a buggy udev package that breaks the USB tree if FTDI chips are plugged into too many USB hubs
-# See https://github.com/raspberrypi/linux/issues/3779#issuecomment-709481662 
+# See https://github.com/raspberrypi/linux/issues/3779#issuecomment-709481662
 # and https://groups.google.com/g/linux.debian.bugs.dist/c/5jI9dDZgfUU
 apt-get remove -y rpi.gpio-common
 
@@ -53,3 +53,11 @@ SUBSYSTEM=="tty", DRIVERS=="ftdi_sio", ATTRS{interface}=="MCV4B", GROUP="$group"
 # SR servo board v4
 SUBSYSTEM=="usb", ATTRS{idVendor}=="1bda", ATTRS{idProduct}=="0011", GROUP="$group", MODE="0666"
 EOF
+
+# Setup KCH leds triggered by systemd
+cp /tmp/packer-files/leds/set-led /usr/bin/
+chmod +x /usr/bin/set-led
+cp /tmp/packer-files/leds/*.service /lib/systemd/system/
+systemctl enable boot_40.service
+systemctl enable boot_60.service
+systemctl enable boot_80.service
