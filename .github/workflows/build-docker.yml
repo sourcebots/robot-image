@@ -19,7 +19,7 @@ jobs:
           sudo apt-get install fdisk gdisk qemu-user-static libarchive-tools tar
 
       - name: Checkout
-        uses: actions/checkout@v3.3.0
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -35,7 +35,7 @@ jobs:
           echo "image_name=$(basename ${{ github.workspace }}/*.img.xz)" >> $GITHUB_ENV
 
       - name: Save image artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: github.event_name != 'release'
         with:
           name: image-${{ env.git_desc }}
