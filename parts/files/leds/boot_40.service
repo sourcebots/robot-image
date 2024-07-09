@@ -1,0 +1,8 @@
+[Unit]
+Description=Boot Progress 40%
+[Service]
+Type=simple
+ExecStart=/usr/bin/set-led 5 1
+
+[Install]
+WantedBy=basic.target

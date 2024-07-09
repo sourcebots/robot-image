@@ -1,0 +1,13 @@
+[Unit]
+Description=Boot Progress 80%
+BindsTo=runusb.service
+After=runusb.service
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/set-led 6 1
+ExecStop=/usr/bin/set-led 6 0
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
