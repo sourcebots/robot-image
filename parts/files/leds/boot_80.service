@@ -5,8 +5,8 @@ After=runusb.service
 
 [Service]
 Type=forking
-ExecStart=/usr/bin/set-led 6 1
-ExecStop=/usr/bin/set-led 6 0
+ExecStart=/usr/bin/pinctrl set 6 op dh
+ExecStop=/usr/bin/pinctrl set 6 op dl
 RemainAfterExit=yes
 
 [Install]
