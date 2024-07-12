@@ -55,8 +55,6 @@ SUBSYSTEM=="usb", ATTRS{idVendor}=="1bda", ATTRS{idProduct}=="0011", GROUP="$gro
 EOF
 
 # Setup KCH leds triggered by systemd
-cp /tmp/packer-files/leds/set-led /usr/bin/
-chmod +x /usr/bin/set-led
 cp /tmp/packer-files/leds/*.service /lib/systemd/system/
 systemctl enable boot_40.service
 systemctl enable boot_60.service

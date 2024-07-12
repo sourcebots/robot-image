@@ -2,7 +2,7 @@
 Description=Boot Progress 40%
 [Service]
 Type=simple
-ExecStart=/usr/bin/set-led 5 1
+ExecStart=/usr/bin/pinctrl set 5 op dh
 
 [Install]
 WantedBy=basic.target

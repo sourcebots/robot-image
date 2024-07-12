@@ -1,9 +1,0 @@
-#!/bin/bash -ex
-
-led_num="$1"
-led_level="$2"
-
-echo "$led_num" > /sys/class/gpio/export
-echo out > /sys/class/gpio/gpio${led_num}/direction
-echo "$led_level" > /sys/class/gpio/gpio5/value
-echo "$led_num" > /sys/class/gpio/unexport

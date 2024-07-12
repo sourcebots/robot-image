@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/set-led 12 1
+ExecStart=/usr/bin/pinctrl set 12 op dh
 
 [Install]
 WantedBy=multi-user.target
