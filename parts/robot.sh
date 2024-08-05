@@ -52,6 +52,8 @@ SUBSYSTEM=="usb", ATTRS{idVendor}=="1bda", ATTRS{idProduct}=="0010", GROUP="$gro
 SUBSYSTEM=="tty", DRIVERS=="ftdi_sio", ATTRS{interface}=="MCV4B", GROUP="$group", MODE="0666"
 # SR servo board v4
 SUBSYSTEM=="usb", ATTRS{idVendor}=="1bda", ATTRS{idProduct}=="0011", GROUP="$group", MODE="0666"
+# Reduce latency for FTDI chips to 1ms (default is 16ms)
+ACTION=="add", SUBSYSTEMS=="usb-serial", DRIVERS=="ftdi_sio", ATTR{latency_timer}="1"
 EOF
 
 # Setup KCH leds triggered by systemd
