@@ -1,3 +1,3 @@
-sbot[vision]==2025.0.0
+sbot[vision]==2025.1.0
 numpy==1.25.0
 runusb[mqtt]==2025.0.0
