@@ -1,5 +1,5 @@
 # This is a requirements file containing the libraries that we have promised to
 # competitors will be present.
-scipy==1.11.1
-matplotlib==3.7.1
-pandas==2.0.3
+scipy==1.17.1
+matplotlib==3.11.1
+pandas==3.0.5
